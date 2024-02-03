@@ -13,14 +13,21 @@ def main():
     actor = vtk.vtkActor()
     actor.SetMapper(mapper)
 
+    r = 32 / 255.0
+    g = 157 / 255.0
+    b = 80 / 255.0
+
+    actor.GetProperty().SetColor(r, g, b)  # Skaliertes Grün
+
     # Renderer erstellen
     renderer = vtk.vtkRenderer()
     renderer.AddActor(actor)
-    renderer.SetBackground(0.1, 0.2, 0.4)  # Hintergrundfarbe
+    renderer.SetBackground(1.0, 1.0, 1.0)  # Hintergrundfarbe
 
     # RenderWindow erstellen
     renderWindow = vtk.vtkRenderWindow()
     renderWindow.AddRenderer(renderer)
+
 
     # RenderWindowInteractor erstellen
     renderWindowInteractor = vtk.vtkRenderWindowInteractor()
